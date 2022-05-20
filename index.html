@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - A Pen by lukeplays33</title>
+  
+  
+  
+  
+<style>
+body {
+  padding: 0px;
+  margin: 0px;
+}
+</style>
+
+  
+  
+  
+  
+
+</head>
+
+<body translate="no" >
+  
+  
+  
+      <script id="rendered-js" type="module">
+import THREE from 'https://cdn.skypack.dev/three.js';
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+var geometry = new THREE.BoxGeometry( 10, 10, 10 );
+var material = new THREE.MeshBasicMaterial({color : 'rgb(' + String(Math.floor(Math.random() * 250) + 1) + ',' + String(Math.floor(Math.random() * 250) + 1) + ',' + String(Math.floor(Math.random() * 250) + 1) + ')'});
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 20;
+
+var animate = function () {
+	requestAnimationFrame( animate );
+
+	cube.rotation.x += 0.01;
+	cube.rotation.y += 0.01;
+  	cube.rotation.z += 0.01;
+
+	renderer.render( scene, camera );
+};
+
+animate();
+    </script>
+
+  
+
+</body>
+
+</html>
